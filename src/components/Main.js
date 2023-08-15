@@ -1,5 +1,12 @@
+import Hero from './Hero'
+
 export default function Main ({children}) {
     return (
-        <main>{children}</main>
+        <main>
+            <Hero></Hero>
+            {/* <Highlights></Highlights>
+            <Testimonials></Testimonials>
+            <About></About> */}
+        </main>
     )
 }
