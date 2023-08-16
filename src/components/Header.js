@@ -7,7 +7,7 @@ import basket from './../assets/basket .svg'
 import Nav from './Nav'
 import MobileNavDropdown from './MobileNavDropdown'
 
-export default function Header({ children }) {
+export default function Header() {
     const [isMenuOpen, setMenuOpen] = useState(false)
 
     const handleClick = e => setMenuOpen(!isMenuOpen)
@@ -15,12 +15,12 @@ export default function Header({ children }) {
         <header className='header-main'>
             <nav className="mobile-nav">
                 <img height={18} className='pointer' src={menu} alt="Menu" onClick={handleClick} />
-                <Link to="/" className='centered'>
+                <Link to="/">
                     <img src={logo} alt="Little Lemon Logo" />
                 </Link>
                 <img height={24} src={basket} alt="Basket" />
             </nav>
-            <Nav className="desktop-nav"></Nav>
+            <Nav className="desktop-nav contain-width"></Nav>
             {isMenuOpen && <MobileNavDropdown handleClick={handleClick} />}
         </header>
     )

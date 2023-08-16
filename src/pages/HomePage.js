@@ -5,7 +5,7 @@ import About from './../components/About'
 
 export default function HomePage () {
     return (
-        <main>
+        <main className='homepage'>
             <Hero></Hero>
             <Highlights></Highlights>
             <Testimonials></Testimonials>

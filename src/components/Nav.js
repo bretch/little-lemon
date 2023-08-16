@@ -14,7 +14,7 @@ export default function Nav({ hideLogo, className }) {
     return (
         <nav className={className}>
             <ul>
-                {!hideLogo &&  <li><img src={logo} alt="Little Lemon Logo" /></li> }
+                {!hideLogo && <li><Link to="/"> <img src={logo} alt="Little Lemon Logo" /> </Link></li>}
                 {links.map((link) => <li key={link.link}><Link to={link.link}>{link.name}</Link></li>)}
             </ul>
         </nav>

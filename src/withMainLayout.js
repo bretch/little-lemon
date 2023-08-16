@@ -5,7 +5,9 @@ const withMainLayout = (WrappedComponent) => {
     return (
         <>
             <Header></Header>
-            <WrappedComponent></WrappedComponent>
+            <div style={{ paddingTop: '84px'}}>
+                <WrappedComponent></WrappedComponent>
+            </div>
             <Footer></Footer>
         </>
     )

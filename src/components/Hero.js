@@ -1,4 +1,6 @@
 import foodImg from './../assets/restauranfood-cropped.png'
+import { Link } from 'react-router-dom'
+
 export default function Hero() {
     return (
         <section className="hero">
@@ -9,9 +11,8 @@ export default function Hero() {
                         <h2>Chicago</h2>
                     </div>
                     <p>Bacon ipsum dolor amet meatball doner tri-tip salami porchetta sausage rump tongue jerky shoulder ribeye f</p>
-                    {/* todo: make this a component */}
                     <div className="actions">
-                        <button>Reserve a Table</button>
+                        <Link to="/booking" className='btn-link'>Reserve a Table</Link>
                     </div>
                 </div>
                 <div class="hero-image">
