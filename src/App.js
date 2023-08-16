@@ -1,15 +1,17 @@
 import './App.scss';
-import Header from './components/Header'
-import Main from './components/Main'
-import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
+import BookingPage from './pages/BookingPage'
+import withMainLayout from './withMainLayout';
 
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
-    <>
-      <Header></Header>
-      <Main></Main>
-      <Footer></Footer>
-    </>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={withMainLayout(HomePage)}></Route>
+          <Route path="/booking" element={withMainLayout(BookingPage)}></Route>
+        </Routes>
+      </BrowserRouter>
   )
 }
 

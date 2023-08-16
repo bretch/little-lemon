@@ -1,21 +1,21 @@
 import logo from './../assets/Logo.svg'
+import { Link } from "react-router-dom";
 
-// @TODO: replace with actual react router-links
 export default function Nav({ hideLogo, className }) {
     const links = [
-        { link: 'home', name: 'Home' },
-        { link: 'about', name: 'About' },
-        { link: 'menu', name: 'Menu' },
-        { link: 'reservations', name: 'Reservations' },
-        { link: 'order-online', name: 'Order Online' },
-        { link: 'login', name: 'Login' },
+        { link: '/', name: 'Home' },
+        { link: '/#about', name: 'About' },
+        { link: '/menu', name: 'Menu' },
+        { link: '/booking', name: 'Reservations' },
+        { link: '/order-online', name: 'Order Online' },
+        { link: '/login', name: 'Login' },
     ]
 
     return (
         <nav className={className}>
             <ul>
                 {!hideLogo &&  <li><img src={logo} alt="Little Lemon Logo" /></li> }
-                {links.map((link) => <li key={link.link}>{link.name}</li>)}
+                {links.map((link) => <li key={link.link}><Link to={link.link}>{link.name}</Link></li>)}
             </ul>
         </nav>
     )
