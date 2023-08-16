@@ -1,7 +1,7 @@
 import logo from './../assets/Logo.svg'
 
 // @TODO: replace with actual react router-links
-export default function Nav({ hideLogo }) {
+export default function Nav({ hideLogo, className }) {
     const links = [
         { link: 'home', name: 'Home' },
         { link: 'about', name: 'About' },
@@ -12,9 +12,9 @@ export default function Nav({ hideLogo }) {
     ]
 
     return (
-        <nav>
+        <nav className={className}>
             <ul>
-                {!hideLogo && <img src={logo} alt="Little Lemon Logo" />}
+                {!hideLogo &&  <li><img src={logo} alt="Little Lemon Logo" /></li> }
                 {links.map((link) => <li key={link.link}>{link.name}</li>)}
             </ul>
         </nav>

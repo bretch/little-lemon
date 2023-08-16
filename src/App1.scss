@@ -1,0 +1,192 @@
+
+/* Scss Vars*/
+$font-primary: 'Markazi Text', serif;
+$font-secondary: 'Karla', sans-serif;
+$color-primary: rgba(73, 94, 87, 1);
+$color-secondary: #F4CE14;
+
+// breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 760px;
+
+
+/* Universal reset */
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: $font-secondary;
+  color: $color-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+}
+
+p, span {
+  font-family: $font-secondary;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  &.rounded {
+    border-radius: 16px;
+  }
+  &.centered {
+    margin: auto;
+  }
+}
+
+.contain-width {
+  max-width: 940px;
+  margin: auto;
+}
+
+
+h1 {
+  font-family: $font-primary;
+  color: $color-secondary;
+  font-size: 64px;
+}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 10vh 1fr 20vh;
+}
+
+header {
+  nav.mobile {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+
+    .logo {
+      margin: auto;
+    }
+  }
+
+  .mobile-dropdown {
+    padding: 20px;
+    height: 100vh;
+    width: 80vw;
+    // make sure dropdown is above absolute hero image
+    // z-index: 100;
+    position: absolute;
+    top: 0;
+    background-color: white;
+
+    div {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 40px;
+    }
+
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+
+      li {
+        font-size: 24px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+main {
+
+  .hero {
+    background-color: $color-primary;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    // gap: 12em;
+    .text {
+      h1 {
+        padding-bottom: 8px;
+      }
+      h3 {
+        padding-bottom: 16px;
+      }
+      p, h3 {
+        color: white;
+      }
+      p {
+        width: 30vw;
+        padding-bottom: 16px;
+      }
+      button {
+        padding: 10px;
+        background-color: $color-secondary;
+      }
+    }
+    .hero-image {
+      p {
+        color: transparent;
+      }
+      img {
+        position:relative;
+        border-radius: 16px;
+        width: 160px;
+        height: 200px;
+        object-fit: fill;
+      }
+    }
+
+  }
+}
+
+footer {
+  background-color: gold;
+}
+
+/* Screen responsiveness */
+@media screen and (min-width:600px) {
+  header nav.mobile, .mobile-dropdown {
+    display: none;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      justify-content: center;
+
+      li {
+        color: $color-primary;
+      }
+    }
+  }
+  main {
+    .hero .hero-image img {
+      position: absolute;
+      border-radius: 16px;
+      width: 280px;
+      height: 300px;
+      object-fit: fill;
+      // top: 0;
+    }
+  }
+}
+
+/* Screen responsiveness */
+@media screen and (min-width:$breakpoint-mobile) {
+  .root {
+    background-color: $color-primary;
+  }
+}
