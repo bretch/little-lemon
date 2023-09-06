@@ -1,9 +1,10 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.scss';
+
 import HomePage from './pages/HomePage'
 import BookingPage from './pages/BookingPage'
 import withMainLayout from './withMainLayout';
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
       <BrowserRouter>
