@@ -33,7 +33,7 @@ const BookingForm = (props) => {
     return `${year}-${month}-${day}`
   }
 
-  const { errors, touched, getFieldProps, handleSubmit, resetForm, values: formValues, setFieldValue} = useFormik({
+  const { errors, touched, getFieldProps, handleSubmit, resetForm, values: formValues, setFieldValue } = useFormik({
     initialValues: {
       date: formatDate(today),
       time: '',
@@ -64,12 +64,15 @@ const BookingForm = (props) => {
     }
   }, [response])
 
-
+  const handleChangeDate = (e) => {
+    setFieldValue('date', e.target.value)
+    props.onChangeDate(e.target.value)
+  }
   return (
-    <VStack w={{ md: '1024px' }} p={{ base: 0, md: 32 }} alignItems="flex-start">
-      <Heading as="h1" id="contactme-section">
-        Reserve a Table
-      </Heading>
+    // <VStack w={{ md: '1024px' }} p={{ base: 0, md: 32 }} alignItems="flex-start">
+    //   <Heading as="h1" id="contactme-section">
+    //     Reserve a Table
+    //   </Heading>
       <Box p={{ base: 0, md: 6 }} rounded="md" w="100%">
         <form onSubmit={handleSubmit}>
           <VStack spacing={4}>
@@ -78,6 +81,7 @@ const BookingForm = (props) => {
               <Input
                 id='date'
                 {...getFieldProps('date')}
+                onChange={handleChangeDate}
                 type='date'
                 min={formatDate(today)}
               />
@@ -95,7 +99,7 @@ const BookingForm = (props) => {
               <NumberInput
                 id='guests'
                 {...getFieldProps('guests')}
-                onChange={(guestsString,guests)=> setFieldValue('guests', guests)}
+                onChange={(guestsString, guests) => setFieldValue('guests', guests)}
                 min={1}
                 max={10}
               >
@@ -120,7 +124,7 @@ const BookingForm = (props) => {
           </VStack>
         </form>
       </Box>
-    </VStack>
+    // </VStack>
   );
 };
 

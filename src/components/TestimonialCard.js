@@ -5,7 +5,7 @@ export default function TestimonialCard(props) {
     return (
         <article className="testimonial-card">
             <div className="star-rating">
-                {Array(starRating).fill().map(r => <img key={r} src={starIcon} alt='Star Name' />)}
+                {Array(starRating).fill().map((r,index) => <img key={index} src={starIcon} alt='Star Name' />)}
             </div>
             <p>{rating}</p>
             <div className="card-img">

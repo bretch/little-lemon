@@ -5,7 +5,7 @@ export default function Hero() {
     return (
         <section className="hero">
             <div className="container contain-width">
-                <div class="description">
+                <div className="description">
                     <div className="title">
                         <h1>Little Lemon</h1>
                         <h2>Chicago</h2>
@@ -15,7 +15,7 @@ export default function Hero() {
                         <Link to="/booking" className='btn-link'>Reserve a Table</Link>
                     </div>
                 </div>
-                <div class="hero-image">
+                <div className="hero-image">
                     {/* here to help position hero-image */}
                     <p>non existent text more text</p>
                     <img className="rounded" height={260} src={foodImg} alt="Restaurant Food" />
