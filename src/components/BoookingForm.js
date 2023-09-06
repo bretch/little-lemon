@@ -113,7 +113,7 @@ const BookingForm = (props) => {
             </FormControl>
             <FormControl isInvalid={touched.occasion && errors.occasion}>
               <FormLabel htmlFor="occasion">Occasion</FormLabel>
-              <Select id="occasion" name="occasion" placeholder="Select an Ocassion" {...getFieldProps('occasion')}>
+              <Select id="occasion" name="occasion" placeholder="Select an Occasion" {...getFieldProps('occasion')}>
                 {occasions.map(occasion => <option key={occasion} value={occasion}>{occasion}</option>)}
               </Select>
               <FormErrorMessage>{errors.occasion}</FormErrorMessage>

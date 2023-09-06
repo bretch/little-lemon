@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom";
 
-import menu from './../assets/🦆 icon _hamburger menu.svg'
+import menu from './../assets/icon_hamburger_menu.svg'
 import logo from './../assets/Logo.svg'
 import basket from './../assets/basket .svg'
 import Nav from './Nav'

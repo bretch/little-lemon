@@ -11,7 +11,6 @@ const useSubmit = () => {
   const [response, setResponse] = useState(null);
 
   const submit = async (url, data) => {
-    console.log('FUCKING HERE')
     const random = Math.random();
     setLoading(true);
     try {

@@ -1,5 +1,4 @@
-const updateTimes = (date) => ['20:00', '21:00']
-const initializeTimes = () => [
+const initialAvailableTimes = [
     '17:00',
     '18:00',
     '19:00',
@@ -7,8 +6,10 @@ const initializeTimes = () => [
     '21:00',
     '22:00'
 ]
+const updateTimes = (date) => ['20:00', '21:00']
+const initializeTimes = () => initialAvailableTimes
 
-export default function availableTimesReducer(availableTimes, action) {
+const availableTimesReducer = (availableTimes, action) => {
     switch (action.type) {
         case 'update': {
             return updateTimes(action.date);
@@ -21,3 +22,6 @@ export default function availableTimesReducer(availableTimes, action) {
         }
     }
 }
+
+export { initialAvailableTimes }
+export default availableTimesReducer
