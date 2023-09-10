@@ -21,36 +21,31 @@ import useSubmit from './../hooks/useSubmit'
 
 import { mixed, number, date, object } from 'yup';
 
+
 const BookingForm = (props) => {
   const { isLoading, response, submit } = useSubmit();
   const occasions = ['birthday', 'anniversary']
-  const today = new Date()
-  const formatDate = date => {
-    var year = date.toLocaleString("default", { year: "numeric" });
-    var month = date.toLocaleString("default", { month: "2-digit" });
-    var day = date.toLocaleString("default", { day: "2-digit" });
-
-    return `${year}-${month}-${day}`
-  }
+  const availableTimesByDate = (date) => props.availableTimes[date] ?? []
 
   const { errors, touched, getFieldProps, handleSubmit, resetForm, values: formValues, setFieldValue } = useFormik({
     initialValues: {
-      date: formatDate(today),
+      date: props.today,
       time: '',
       guests: 2,
       occasion: ''
     },
-    onSubmit: (values) => submit('', values),
+    onSubmit: (values) => submit(props.onSubmitForm, values),
     validationSchema: object({
-      date: date().default(() => formatDate(today)).min(formatDate(today), 'Please input a valid date.').required(),
+      date: date().default(() => props.today).min(props.today, 'Please input a valid date.').required(),
       time: mixed()
         .required()
-        .oneOf(props.availableTimes),
+        .oneOf(availableTimesByDate(props.today)), // @TODO: replace with dynamic checking (actual date value from form)
       guests: number().min(1).max(10).required('Number of Guests cannot be empty'),
       occasion: mixed().required()
         .oneOf(occasions)
     }),
   });
+
 
   useEffect(() => {
     if (response) {
@@ -69,10 +64,6 @@ const BookingForm = (props) => {
     props.onChangeDate(e.target.value)
   }
   return (
-    // <VStack w={{ md: '1024px' }} p={{ base: 0, md: 32 }} alignItems="flex-start">
-    //   <Heading as="h1" id="contactme-section">
-    //     Reserve a Table
-    //   </Heading>
       <Box p={{ base: 0, md: 6 }} rounded="md" w="100%">
         <form onSubmit={handleSubmit}>
           <VStack spacing={4}>
@@ -83,14 +74,14 @@ const BookingForm = (props) => {
                 {...getFieldProps('date')}
                 onChange={handleChangeDate}
                 type='date'
-                min={formatDate(today)}
+                min={props.today}
               />
               <FormErrorMessage>{errors.date}</FormErrorMessage>
             </FormControl>
             <FormControl isInvalid={touched.time && errors.time}>
               <FormLabel htmlFor="time">Time</FormLabel>
               <Select id="time" name="time" placeholder="Select Time" {...getFieldProps('time')}>
-                {props.availableTimes.map(timeSlot => <option key={timeSlot} value={timeSlot}>{timeSlot}</option>)}
+                {availableTimesByDate(formValues.date).map(timeSlot => <option key={timeSlot} value={timeSlot}>{timeSlot}</option>)}
               </Select>
               <FormErrorMessage>{errors.time}</FormErrorMessage>
             </FormControl>
@@ -124,7 +115,6 @@ const BookingForm = (props) => {
           </VStack>
         </form>
       </Box>
-    // </VStack>
   );
 };
 

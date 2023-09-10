@@ -1,21 +1,19 @@
-const initialAvailableTimes = [
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00',
-    '22:00'
-]
-const updateTimes = (date) => ['20:00', '21:00']
-const initializeTimes = () => initialAvailableTimes
+/*
+ Available Booking Times by Date
+const availableTimes  = {
+    'YYYY-MM-DD': ['10:00', '13:00']
+}
+*/
 
 const availableTimesReducer = (availableTimes, action) => {
     switch (action.type) {
-        case 'update': {
-            return updateTimes(action.date);
-        }
         case 'initialize': {
-            return initializeTimes()
+            return {
+                [action.date]: action.availableTimes
+            }
+        }
+        case 'update': {
+            return {...availableTimes, [action.date]: action.availableTimes}
         }
         default: {
             throw Error('Unknown action: ' + action.type);
@@ -23,5 +21,4 @@ const availableTimesReducer = (availableTimes, action) => {
     }
 }
 
-export { initialAvailableTimes }
 export default availableTimesReducer
