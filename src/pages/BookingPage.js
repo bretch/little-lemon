@@ -14,7 +14,8 @@ export default function BookingPage(props) {
     const handleChangeDate = (date) => fetchAPI(date).then(results => dispatch({ type: 'update', date, availableTimes: results }))
     const handleSubmitForm = formData => submitAPI(formData).then(result => {
         if (result) {
-            navigate('/booking-confirmed')
+            dispatch({ type: 'updateBookingTime', date: formData.date, time: formData.time })
+            // navigate('/booking-confirmed')
         }
     })
 

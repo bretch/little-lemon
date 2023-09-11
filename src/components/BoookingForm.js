@@ -37,9 +37,10 @@ const BookingForm = (props) => {
     onSubmit: (values) => submit(props.onSubmitForm, values),
     validationSchema: object({
       date: date().default(() => props.today).min(props.today, 'Please input a valid date.').required(),
-      time: mixed()
-        .required()
-        .oneOf(availableTimesByDate(props.today)), // @TODO: replace with dynamic checking (actual date value from form)
+      time: mixed().required(),
+      // time: mixed()
+      //   .required()
+      //   .oneOf(availableTimesByDate(props.today)), // @TODO: replace with dynamic checking (actual date value from form)
       guests: number().min(1).max(10).required('Number of Guests cannot be empty'),
       occasion: mixed().required()
         .oneOf(occasions)

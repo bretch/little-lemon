@@ -3,7 +3,7 @@ import {BrowserRouter} from 'react-router-dom'
 import BookingForm from './../components/BoookingForm';
 
 beforeAll(() => {
-    render(<BookingForm availableTimes={[]} onChangeDate={() => {}} />, { wrapper: BrowserRouter});
+    render(<BookingForm today='2023-09-12' availableTimes={[]} onChangeDate={() => {}} onSubmitForm={() => {}} />, { wrapper: BrowserRouter});
 })
 
 test(`Renders all field labels`, () => {
