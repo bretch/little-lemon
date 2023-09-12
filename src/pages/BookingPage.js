@@ -1,5 +1,4 @@
 import { useReducer, useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
 import { fetchAPI, submitAPI } from "./../api"
 import { getToday } from './../utils'
 import availableTimesReducer from './../availableTimesReducer';
@@ -8,14 +7,16 @@ import Layout from './../components/Layout'
 import BookingForm from './../components/BoookingForm'
 
 export default function BookingPage(props) {
-    const navigate = useNavigate();
     const today = getToday()
     const [availableTimes, dispatch] = useReducer(availableTimesReducer, [])
     const handleChangeDate = (date) => fetchAPI(date).then(results => dispatch({ type: 'update', date, availableTimes: results }))
     const handleSubmitForm = formData => submitAPI(formData).then(result => {
         if (result) {
-            dispatch({ type: 'updateBookingTime', date: formData.date, time: formData.time })
-            // navigate('/booking-confirmed')
+            dispatch({
+                type: 'updateBookingTime',
+                date: formData.date,
+                time: formData.time,
+            })
         }
     })
 

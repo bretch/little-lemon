@@ -37,5 +37,5 @@ export const submitAPI = formData => new Promise((resolve, reject) => {
     setTimeout(() => {
         if (formData) resolve(true)
         else reject(new Error('Error saving request.'))
-    }, 1000)
+    }, 500)
 })

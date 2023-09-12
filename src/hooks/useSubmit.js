@@ -13,7 +13,7 @@ const useSubmit = () => {
   const submit = async (submitFn = null, data) => {
     setLoading(true);
     try {
-      await wait(2000);
+      await wait(500);
       if (typeof submitFn === 'function') await submitFn(data)
       else {
         const random = Math.random();
@@ -26,6 +26,7 @@ const useSubmit = () => {
         message: 'Successfully submitted data.'
       })
     } catch (error) {
+      console.log(error)
       setResponse({
         type: 'error',
         message: 'Something went wrong, please try again later!',
