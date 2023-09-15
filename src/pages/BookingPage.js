@@ -6,7 +6,7 @@ import availableTimesReducer from './../availableTimesReducer';
 import Layout from './../components/Layout'
 import BookingForm from './../components/BoookingForm'
 
-export default function BookingPage(props) {
+export default function BookingPage() {
     const today = getToday()
     const [availableTimes, dispatch] = useReducer(availableTimesReducer, [])
     const handleChangeDate = (date) => fetchAPI(date).then(results => dispatch({ type: 'update', date, availableTimes: results }))

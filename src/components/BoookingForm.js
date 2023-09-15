@@ -31,7 +31,7 @@ const BookingForm = (props) => {
   const occasions = ['Birthday', 'Anniversary']
   const availableTimesByDate = (date) => props.availableTimes[date] ?? []
 
-  const { errors, touched, getFieldProps, handleSubmit, resetForm, values: formValues, setFieldValue } = useFormik({
+  const { errors, touched, getFieldProps, handleSubmit, values: formValues, setFieldValue } = useFormik({
     initialValues: {
       date: props.today,
       time: '',
@@ -78,6 +78,7 @@ const BookingForm = (props) => {
                   onChange={handleChangeDate}
                   type='date'
                   min={props.today}
+                  data-testid='date-input'
                 />
                 <FormErrorMessage>{errors.date}</FormErrorMessage>
               </FormControl>
@@ -85,7 +86,12 @@ const BookingForm = (props) => {
             <GridItem>
               <FormControl isInvalid={touched.time && errors.time}>
                 <FormLabel htmlFor="time">Time</FormLabel>
-                <Select id="time" name="time" placeholder="Select Time" {...getFieldProps('time')}>
+                <Select id="time"
+                  name="time"
+                  placeholder="Select Time"
+                  {...getFieldProps('time')}
+                  data-testid='time-input'
+                >
                   {availableTimesByDate(formValues.date).map(timeSlot => <option key={timeSlot} value={timeSlot}>{timeSlot}</option>)}
                 </Select>
                 <FormErrorMessage>{errors.time}</FormErrorMessage>
@@ -101,7 +107,7 @@ const BookingForm = (props) => {
               min={1}
               max={10}
             >
-              <NumberInputField />
+              <NumberInputField data-testid='guests-input' />
               <NumberInputStepper>
                 <NumberIncrementStepper />
                 <NumberDecrementStepper />
@@ -111,7 +117,11 @@ const BookingForm = (props) => {
           </FormControl>
           <FormControl isInvalid={touched.occasion && errors.occasion}>
             <FormLabel htmlFor="occasion">Occasion</FormLabel>
-            <Select id="occasion" name="occasion" placeholder="Select an Occasion" {...getFieldProps('occasion')}>
+            <Select id="occasion"
+              name="occasion"
+              placeholder="Select an Occasion"
+              {...getFieldProps('occasion')}
+              data-testid="occasion-input">
               {occasions.map(occasion => <option key={occasion} value={occasion}>{occasion}</option>)}
             </Select>
             <FormErrorMessage>{errors.occasion}</FormErrorMessage>
