@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     // scroll to top of page on route change
     useEffect(() => {
       const root = document.getElementById('root')
-      root.scrollIntoView()
+      if(root) root.scrollIntoView()
     }, [location]);
 
     return (

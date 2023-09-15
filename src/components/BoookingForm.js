@@ -17,7 +17,6 @@ import {
   NumberDecrementStepper,
   Grid,
   GridItem,
-  background
 } from "@chakra-ui/react";
 
 import useSubmit from './../hooks/useSubmit'
@@ -126,7 +125,7 @@ const BookingForm = (props) => {
             </Select>
             <FormErrorMessage>{errors.occasion}</FormErrorMessage>
           </FormControl>
-          <Button bg="brand.secondary" text="black" _hover='brand.secondary' isLoading={isLoading} loadingText='Submitting' type="submit" width="full">
+          <Button bg="brand.secondary" text="black" isLoading={isLoading} loadingText='Submitting' type="submit" width="full">
             Submit
           </Button>
         </VStack>
