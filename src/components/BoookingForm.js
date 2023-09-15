@@ -7,7 +7,6 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Heading,
   Input,
   Select,
   VStack,
@@ -17,7 +16,8 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   Grid,
-  GridItem
+  GridItem,
+  background
 } from "@chakra-ui/react";
 
 import useSubmit from './../hooks/useSubmit'
@@ -70,7 +70,7 @@ const BookingForm = (props) => {
         <VStack spacing={4}>
           <Grid w='100%' templateColumns='repeat(3, 1fr)' gap={6}>
             <GridItem colSpan={2}>
-              <FormControl isInvalid={touched.date && errors.date}>
+              <FormControl isRequired isInvalid={touched.date && errors.date}>
                 <FormLabel htmlFor="date">Date</FormLabel>
                 <Input
                   id='date'
@@ -84,7 +84,7 @@ const BookingForm = (props) => {
               </FormControl>
             </GridItem>
             <GridItem>
-              <FormControl isInvalid={touched.time && errors.time}>
+              <FormControl isRequired isInvalid={touched.time && errors.time}>
                 <FormLabel htmlFor="time">Time</FormLabel>
                 <Select id="time"
                   name="time"
@@ -98,7 +98,7 @@ const BookingForm = (props) => {
               </FormControl>
             </GridItem>
           </Grid>
-          <FormControl isInvalid={touched.guests && errors.guests}>
+          <FormControl isRequired isInvalid={touched.guests && errors.guests}>
             <FormLabel htmlFor="guests">Number of Guests</FormLabel>
             <NumberInput
               id='guests'
@@ -126,7 +126,7 @@ const BookingForm = (props) => {
             </Select>
             <FormErrorMessage>{errors.occasion}</FormErrorMessage>
           </FormControl>
-          <Button isLoading={isLoading} loadingText='Submitting' type="submit" colorScheme="purple" width="full">
+          <Button bg="brand.secondary" text="black" _hover='brand.secondary' isLoading={isLoading} loadingText='Submitting' type="submit" width="full">
             Submit
           </Button>
         </VStack>

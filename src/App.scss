@@ -162,12 +162,12 @@ article.menu-card {
   background-color: white;
   z-index: 100;
 
-  div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
+  > div {
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+      align-items: center;
     margin: 20px;
+
   }
 
   nav ul {

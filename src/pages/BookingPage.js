@@ -1,3 +1,4 @@
+import { extendTheme, ChakraProvider } from '@chakra-ui/react'
 import { useReducer, useEffect } from 'react'
 import { fetchAPI, submitAPI } from "./../api"
 import { getToday } from './../utils'
@@ -5,6 +6,15 @@ import availableTimesReducer from './../availableTimesReducer';
 
 import Layout from './../components/Layout'
 import BookingForm from './../components/BoookingForm'
+
+const theme = extendTheme({
+    colors: {
+        brand: {
+            primary: 'rgba(73, 94, 87, 1)',
+            secondary: '#F4CE14',
+        },
+    },
+})
 
 export default function BookingPage() {
     const today = getToday()
@@ -28,15 +38,17 @@ export default function BookingPage() {
 
     return (
         <Layout>
-            <section className="contain-width">
-                <h1>Book Now</h1>
-                <main>
-                    <BookingForm today={today}
-                        availableTimes={availableTimes}
-                        onChangeDate={handleChangeDate}
-                        onSubmitForm={handleSubmitForm} />
-                </main>
-            </section>
+            <ChakraProvider theme={theme}>
+                <section className="contain-width">
+                    <h1>Book Now</h1>
+                    <main>
+                        <BookingForm today={today}
+                            availableTimes={availableTimes}
+                            onChangeDate={handleChangeDate}
+                            onSubmitForm={handleSubmitForm} />
+                    </main>
+                </section>
+            </ChakraProvider>
         </Layout>
     )
 }
