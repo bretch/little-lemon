@@ -35,6 +35,12 @@ h1 {
   font-weight: 400;
 }
 
+h2 {
+  font-size: 32px;
+  font-weight: medium;
+  font-weight: 400;
+}
+
 p,
 span {
   font-family: $font-secondary;
@@ -46,6 +52,13 @@ ul li {
 
 a {
   text-decoration: none;
+  line-height: 32px;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: $color-secondary;
+    font-weight: bold;
+  }
 }
 
 img {
@@ -101,6 +114,12 @@ article.menu-card {
     gap: 16px;
     padding: 20px;
 
+    > header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
     .delivery {
       display: flex;
       align-items: center;
@@ -117,7 +136,6 @@ article.menu-card {
   display: flex;
   flex-direction: column;
   gap: 60px;
-  // padding-top: 84px;
 }
 
 //Main Header and Navigation
@@ -190,7 +208,6 @@ article.menu-card {
 
   .container {
     display: flex;
-    justify-content: center;
     padding: 20px;
 
     .description {
@@ -206,7 +223,7 @@ article.menu-card {
       h2,
       p {
         color: white;
-        max-width: 400px;
+        // max-width: 400px;
       }
     }
 
@@ -227,17 +244,23 @@ article.menu-card {
 // Highlights
 .highlights {
   padding: 20px;
+  width: -webkit-fill-available;
 
-  header {
+  > header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    padding: 0 20px 20px 20px;
+
+    h1 {
+      font-size: 32px;
+    }
   }
 
   main {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 20px;
     align-items: center;
   }
@@ -263,22 +286,23 @@ article.menu-card {
     flex-direction: column;
     align-items:center;
     gap: 8px;
-    padding: 4px;
+    padding: 12px;
     text-align: center;
+    background-color: $color-highlight;
+    border-radius: 8px;
   }
 }
 
 //About
 .about {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 40px;
   padding: 20px;
   align-items: center;
 
   img {
     width: auto;
-    height: 140px;
   }
 }
 
@@ -291,6 +315,10 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+}
+
+.page-container {
+  padding: 40px 20px;
 }
 
 /* Screen responsiveness */
@@ -314,8 +342,7 @@ footer {
     max-height: 300px;
 
     .container {
-      justify-content: center;
-      padding: 20px 0;
+      justify-content: space-between;
 
       .description {
         display: flex;
@@ -339,7 +366,6 @@ footer {
         }
 
         img {
-          // position: absolute;
           width: auto;
           height: 320px;
         }
@@ -350,11 +376,16 @@ footer {
   .highlights {
     margin-top: 80px;
 
+    header {
+      padding: 20px 0;
+
+      > h1 {
+        font-size: 64px;
+      }
+    }
+
     main {
       flex-direction: row;
-      // display: grid;
-      // grid-template-columns: repeat(3, auto);
-      // gap: 20px;
     }
   }
 
@@ -365,6 +396,8 @@ footer {
   }
 
   .about {
+    grid-template-columns: 1fr 1fr;
+
     img {
       width: auto;
       height: 300px;

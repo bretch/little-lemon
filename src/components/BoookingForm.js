@@ -68,8 +68,8 @@ const BookingForm = (props) => {
     <Box p={{ base: 0, md: 6 }} rounded="md" w="100%">
       <form onSubmit={handleSubmit}>
         <VStack spacing={4}>
-          <Grid w='100%' templateColumns='repeat(3, 1fr)' gap={6}>
-            <GridItem colSpan={2}>
+          <Grid w='100%' templateColumns='repeat(5, 1fr)' gap={6}>
+            <GridItem colSpan={3}>
               <FormControl isRequired isInvalid={touched.date && errors.date}>
                 <FormLabel htmlFor="date">Date</FormLabel>
                 <Input
@@ -83,7 +83,7 @@ const BookingForm = (props) => {
                 <FormErrorMessage>{errors.date}</FormErrorMessage>
               </FormControl>
             </GridItem>
-            <GridItem>
+            <GridItem colSpan={2}>
               <FormControl isRequired isInvalid={touched.time && errors.time}>
                 <FormLabel htmlFor="time">Time</FormLabel>
                 <Select id="time"

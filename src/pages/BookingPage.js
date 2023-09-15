@@ -6,6 +6,7 @@ import availableTimesReducer from './../availableTimesReducer';
 
 import Layout from './../components/Layout'
 import BookingForm from './../components/BoookingForm'
+import Hero from './../components/Hero'
 
 const theme = extendTheme({
     colors: {
@@ -39,8 +40,14 @@ export default function BookingPage() {
     return (
         <Layout>
             <ChakraProvider theme={theme}>
-                <section className="contain-width">
-                    <h1>Book Now</h1>
+                <Hero
+                    title="Book Now"
+                    description="Find a table for any occasion and enjoy our time-perfected authentic dishes."
+                    hideActions
+                    hideSubtitle
+                ></Hero>
+                <section className="page-container contain-width">
+                    <h1>Booking Details</h1>
                     <main>
                         <BookingForm today={today}
                             availableTimes={availableTimes}
