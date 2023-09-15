@@ -4,9 +4,9 @@ import logo from './../assets/logo-vertical.png'
 
 export default function Footer() {
     const contact = [
-        { link: '#', name: '7292 Dictum Av. San Antonio MI 47096' },
-        { link: '#', name: '+111111-11-11' },
-        { link: '#', name: 'littlelemon@email.com' },
+        { link: '/address', name: '7292 Dictum Av. San Antonio MI 47096' },
+        { link: '/contact', name: '+111111-11-11' },
+        { link: '/email', name: 'littlelemon@email.com' },
     ]
     const socials = [
         { link: '/fb', name: 'Facebook', target: '_blank'},
