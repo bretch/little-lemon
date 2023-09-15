@@ -9,7 +9,7 @@ export default function Footer() {
         { link: '/email', name: 'littlelemon@email.com' },
     ]
     const socials = [
-        { link: '/fb', name: 'Facebook', target: '_blank'},
+        { link: '/fb', name: 'Facebook' },
         { link: '/twitter', name: 'Twitter' },
     ]
     return (

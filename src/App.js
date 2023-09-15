@@ -22,8 +22,8 @@ function App() {
           path="/booking"
           element={<BookingPage/>}></Route>
         <Route path="/booking-confirmed" element={<BookingConfirmedPage />}></Route>
-        <Route path="/" element={<HomePage />}></Route>
         {emptyPages.map(page => <Route key={page.path} path={page.path} element={<PlaceholderPage title={page.title}/>}></Route>)}
+        <Route path="*" element={<PlaceholderPage />}></Route>
       </Routes>
     </BrowserRouter>
   )
