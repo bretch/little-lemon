@@ -18,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,8 +41,10 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "node-sass": "^7.0.3",
     "react-router-dom": "^6.15.0",
     "sass-loader": "^13.3.2"
-  }
+  },
+  "homepage": "https://bretch.github.io/little-lemon"
 }
